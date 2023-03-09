@@ -1,4 +1,5 @@
 'use strict'
+require('dotenv').config()
 // https://cors-anywhere.herokuapp.com/ has been prepended to each API link
 // so that the link redirects through a proxy server to avoid CORS errors
 // that the steam API throws for not being a secure access.
@@ -134,7 +135,7 @@ document.querySelector('#search').addEventListener('click', (event) => {
   } else {
     // if there is a string it means that a custom url was entered which means
     // that the SteamId must be decoded from the url
-    const URL_USER_ID_TEMPLATE = 'https://cors-anywhere.herokuapp.com/http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=ReplaceMe&vanityurl={vanityurl}'
+    const URL_USER_ID_TEMPLATE = 'https://cors-anywhere.herokuapp.com/http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key='+ process.env.SECRET_KEY +'&vanityurl={vanityurl}'
     const url = URL_USER_ID_TEMPLATE.replace('{vanityurl}', document.querySelector('input').value)
     const promise = fetch(url).then((response) => {
       return response.json()
