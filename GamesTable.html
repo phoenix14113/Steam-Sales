@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Steam Discounts</title>
+  <meta name="description" content="shows all games currently on sale on steam">
+  <meta name="WIP" content="This is a work in progress and these games are probably not on sale">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Table, Sales, Steam, Main_App">
+  <link rel="icon" type="image/png" href="./img/Logo5-01.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <meta name="author" content="Adam Taylor">
+  <!-- API site: https://steamapis.com/docs/market -->
+  <!-- Nav bar img: https://www.tenscope.co/free-logos -->
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li id="menu"><button type="button" title="menu"><i class="fa-solid fa-bars"></i></button></li>
+    </ul>
+  </nav>
+  <h1>Steam Sales Description</h1>
+  <p class="table-description">
+    This website is designed so that you can see exclusively what is on sale and free that you or someone else you know
+    already owns on steam. I want to be able to provide people with an easier, and more covienient way to see what is on
+    sale than on their friends game list than steam or other third party websites that also show the rest of the steam
+    database.
+  </p>
+  <p class="table-description">
+    In order to use this service you need your or your friend's SteamID or custom URL. You can find this by going to their steam
+    profile website and then copying the last field in the url. Most of the time this will be a long number but it could
+    be a phrase if you or your friend changed it.
+  </p>
+  <h2>Sales Table</h2>
+  <form class="form-inline" method="GET" action="https://api.steampowered.com">
+    <div class="form-group mr-3">
+      <label for="search-query" class="mr-2">Please enter the SteamID of the player whose games you would like to
+        search?</label>
+      <input type="text" name="term" id="search-query" class="form-control">
+    </div>
+    <button id="search" type="submit" class="btn btn-primary">
+      Search!
+    </button>
+    <input type="hidden" name="entity" value="SteamID"> <!-- extra form param -->
+  <div id="before-table"></div>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Game Image</th>
+        <th>Title</th>
+        <th>Cost</th>
+        <th>Sale Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <footer>
+    <ol>
+      <li id="footer">&copy;2022 Adam Taylor</li>
+      <li>Email: <a href="mailto: adam.tayor@wallawalla.edu">adam.tayor@wallawalla.edu</a></li>
+    </ol>
+  </footer>
+  <script src="js/NavBar.js"></script>
+  <script src="js/TableData.js"></script>
+</body>
+
+</html>
