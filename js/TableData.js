@@ -32,7 +32,7 @@ function renderItems (game) {
     // collect game data from a game object
     const gameName = game[objectKey[0]].data.name
     const gameImg = game[objectKey[0]].data.header_image
-    const gameWebPage = "https://store.steampowered.com/app/" + game[objectKey[0]].data.steam_appid
+    const gameWebPage = 'https://store.steampowered.com/app/' + game[objectKey[0]].data.steam_appid
     let gamePrice = null
     let gameDiscount = null
     // change print format if the game is free

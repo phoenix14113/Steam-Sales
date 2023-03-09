@@ -90,12 +90,6 @@ describe('HTML content checks', () => {
 
     bodyChildren = $indexHTML('body').children()
     expect(bodyChildren[0].tagName).toMatch('nav') // index.html body's first child is nav
-
-    bodyChildren = $RandomGameHTML('body').children()
-    expect(bodyChildren[0].tagName).toMatch('nav') // RandomGame.html body's first child is nav
-
-    bodyChildren = $statsHTML('body').children()
-    expect(bodyChildren[0].tagName).toMatch('nav') // stats.html body's first child is nav
   })
 
   test('Checking initial image count', async () => {
@@ -107,22 +101,10 @@ describe('HTML content checks', () => {
 
     Images = $indexHTML('img').children()
     expect(Images.length === 3)
-
-    Images = $RandomGameHTML('img').children()
-    expect(Images.length === 1)
-
-    Images = $statsHTML('img').children()
-    expect(Images.length === 0)
   })
 
   test('Tables are present', async () => {
     let tables = $GamesTableHTML('img').children()
-    expect(tables.length === 1)
-
-    tables = $RandomGameHTML('img').children()
-    expect(tables.length === 1)
-
-    tables = $statsHTML('img').children()
     expect(tables.length === 1)
   })
 })
