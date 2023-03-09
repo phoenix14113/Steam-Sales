@@ -4,13 +4,10 @@ name: Create envfile
 on: push
 
 jobs:
-
   create-envfile:
- 
     runs-on: ubuntu-latest
- 
     steps:
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1.3
-      with:
-        envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}

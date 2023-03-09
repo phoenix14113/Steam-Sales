@@ -77,7 +77,6 @@ beforeAll(() => {
   $indexHTML = cheerio.load(htmlIndex)
 })
 
-
 // cheerio instance css/style.css
 
 describe('HTML content checks', () => {
@@ -104,7 +103,7 @@ describe('HTML content checks', () => {
   })
 
   test('Tables are present', async () => {
-    let tables = $GamesTableHTML('img').children()
+    const tables = $GamesTableHTML('img').children()
     expect(tables.length === 1)
   })
 })
