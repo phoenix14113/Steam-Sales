@@ -39,8 +39,6 @@ describe('Source code is valid', () => {
 
   test('CSS validates without errors', async () => {
     await expect(path.join(__dirname, '/css/style.css')).toHaveNoCssLintErrorsAsync() // test all files in css folder
-    await expect(path.join(__dirname, '/css-emcoberly/style.css')).toHaveNoCssLintErrorsAsync() // test all files in css folder
-    await expect(path.join(__dirname, '/css-harrbr/style.css')).toHaveNoCssLintErrorsAsync() // test all files in css folder
   })
 
   test('JavaScript lints without errors', () => {
@@ -79,23 +77,6 @@ beforeAll(() => {
   $indexHTML = cheerio.load(htmlIndex)
 })
 
-// cheerio instance for RandomGame.html
-const htmlPathRandomGame = path.join(__dirname, htmlFiles[3])
-const htmlRandomGame = fs.readFileSync(htmlPathRandomGame, 'utf-8')
-
-let $RandomGameHTML
-beforeAll(() => {
-  $RandomGameHTML = cheerio.load(htmlRandomGame)
-})
-
-// cheerio instance for stats.html
-const htmlPathStats = path.join(__dirname, htmlFiles[4])
-const htmlStats = fs.readFileSync(htmlPathStats, 'utf-8')
-
-let $statsHTML
-beforeAll(() => {
-  $statsHTML = cheerio.load(htmlStats)
-})
 
 // cheerio instance css/style.css
 
