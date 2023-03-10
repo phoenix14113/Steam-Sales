@@ -1,5 +1,4 @@
 'use strict'
-require('dotenv').config()
 // https://cors-anywhere.herokuapp.com/ has been prepended to each API link
 // so that the link redirects through a proxy server to avoid CORS errors
 // that the steam API throws for not being a secure access.
@@ -52,6 +51,7 @@ function renderItems (game) {
       imageColumn.appendChild(img)
 
       const link = document.createElement('a')
+      link.className = 'gameLink'
       link.href = gameWebPage
       link.textContent = gameName
 
@@ -110,7 +110,7 @@ function fetchItems (gamesList) {
   })
 }
 
-const URL_USER_ID_TEMPLATE = 'https://cors-anywhere.herokuapp.com/https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=ReplaceMe&steamid={steamId}'
+const URL_USER_ID_TEMPLATE = 'https://cors-anywhere.herokuapp.com/https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=781B096A18E5438AAA028E11D22B796E&steamid={steamId}'
 function fetchGameList (steamId) {
   // collect all games from a user's library
   const url = URL_USER_ID_TEMPLATE.replace('{steamId}', steamId)
@@ -135,7 +135,7 @@ document.querySelector('#search').addEventListener('click', (event) => {
   } else {
     // if there is a string it means that a custom url was entered which means
     // that the SteamId must be decoded from the url
-    const URL_USER_ID_TEMPLATE = 'https://cors-anywhere.herokuapp.com/http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key='+ process.env.SECRET_KEY +'&vanityurl={vanityurl}'
+    const URL_USER_ID_TEMPLATE = 'https://cors-anywhere.herokuapp.com/http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=781B096A18E5438AAA028E11D22B796E&vanityurl={vanityurl}'
     const url = URL_USER_ID_TEMPLATE.replace('{vanityurl}', document.querySelector('input').value)
     const promise = fetch(url).then((response) => {
       return response.json()
