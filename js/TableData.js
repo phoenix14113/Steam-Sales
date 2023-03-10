@@ -51,7 +51,7 @@ function renderItems (game) {
       imageColumn.appendChild(img)
 
       const link = document.createElement('a')
-      link.className = 'gameLink'
+      link.className = 'game-link'
       link.href = gameWebPage
       link.textContent = gameName
 
