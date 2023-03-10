@@ -131,6 +131,10 @@ th {
   border: 2px solid black;
 }
 
+#github {
+  color: #490763;
+}
+
 .game-link:visited {
   color: #800707;
 }
